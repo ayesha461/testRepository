@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Admin</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'admin/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'admin/dist/css/adminlte.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'admin/dist/css/custom.css' %}" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{% url 'home' %}" class="brand-link">
+      <img src="{% static 'assets/img/aa.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Grade Prediction</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview  ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Teachers
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'teacherIndex' %}" class="nav-link  active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register Teacher</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'teacherList' %}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Teachers List</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Students
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'addStudent' %}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register Student</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'studentList' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Student List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Predict Result
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'addStudentMarks' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Prediction Form</p>
+                </a>
+              </li>
+          </ul>
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Settings
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'changePassword' %}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Change Password</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'changeProfile' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Change Profile</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="section_overlay">
+     
+
+      <section id="book-a-table" class="book-a-table">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Register new teacher here</h2>
+          <p>Teacher Registration</p>
+        </div>
+
+        <form action="/addTeacher/" method="POST" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+         {% csrf_token %}
+          <div class="form-row">
+            <div class="col-lg-4 col-md-6 form-group">
+                <label>Registration ID</label>
+              <input type="text" class="form-control" name="TId" id="number" placeholder="Enter Registration Id" data-rule="minlen:4" data-rule="number" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+                <label>Name</label>
+              <input type="text" name="TName" class="form-control" id="name" placeholder="Enter Name" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+                <label>Gender</label>
+              <select class="form-control" name="Gender" id="text" required="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+              </select>
+              <div class="validate"></div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+               <label>Choose Designation</label>
+               <select class="form-control" name="Designation" id="text" required="">
+                <option value="">Choose Designation</option>
+                <option value="Prof.">Prof.</option>
+                <option value="Assistant Prof.">Assistant Prof.</option>
+                <option value="Lab Assistant">Lab Assistant</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+               <label>Department</label>
+              <select class="form-control" name="Department" required="">
+                <option value="">Select Department</option>
+                <option value="BSCS">BSCS</option>
+                <option value="BSSE">BSSE</option>
+                <option value="BSIT">BSIT</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="TEmail" id="email" placeholder="Enter email address" data-rule="email" data-msg="Please enter a valid email">
+                 <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group">
+             <label>Password</label>
+              <input type="password" name="Password" class="form-control" id="password" placeholder="Password" data-rule="minlen:5" data-msg="Please enter at least 5 chars">
+              <div class="validate"></div>
+          </div>
+          <div class="text-center"><button type="submit" class="button"><span></span>Register</button></div>
+        </form>
+      </div>
+    </section>
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{% static 'admin/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'admin/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'admin/dist/js/adminlte.js' %}"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="{% static 'admin/dist/js/demo.js' %}"></script>
+
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="{% static 'admin/plugins/jquery-mousewheel/jquery.mousewheel.js' %}"></script>
+<script src="{% static 'admin/plugins/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'admin/plugins/jquery-mapael/jquery.mapael.min.js' %}"></script>
+<script src="{% static 'admin/plugins/jquery-mapael/maps/usa_states.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'admin/plugins/chart.js/Chart.min.js' %}"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="{% static 'admin/dist/js/pages/dashboard2.js' %}"></script>
+</body>
+</html>
